@@ -1,0 +1,36 @@
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin-top: 50px;
+}
+
+header nav {
+    display: flex;
+    align-items: flex-end;
+}
+
+ul#top-menu {
+    display: inline-flex;
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+ul#top-menu li {
+    font-family: Lato;
+    font-size: 18px;
+    line-height: 160%;
+    margin-left: 50px;
+    cursor: pointer;
+}
+
+.selected {
+    color: #212353;
+    font-weight: bold;
+}
+
+.unselected {
+    color: #4B5D68;
+}

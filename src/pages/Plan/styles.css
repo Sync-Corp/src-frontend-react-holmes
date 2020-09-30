@@ -1,0 +1,9 @@
+.plan-container {
+    display: flex;
+    flex-direction: column;
+
+    width: 80%;
+    margin-top: 60px;
+
+    align-items: center;
+}

@@ -1,0 +1,79 @@
+footer {
+    display: flex;
+    flex-direction: column;
+    border-top: 2px solid #e5e5e5;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 50px;
+}
+
+.footer-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 60px;
+    width: 80%;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.footer-info {
+    display: grid;
+
+    width: 80%;
+    justify-content: space-between;
+
+    margin-top: 60px;
+
+    grid-row: 1fr;
+    grid-column: 2fr repeat(3, 1fr);
+    grid-template-areas: 
+        "adress adress know find social"
+    ;
+}
+
+span.adress {
+    grid-area: "adress";
+}
+
+span.know {
+    grid-area: "know";
+}
+
+span.find {
+    grid-area: "find";
+}
+
+span.social {
+    grid-area: "social";
+}
+
+ul.footer-list, ul.social-list {
+    list-style: none;
+}
+
+ul.footer-list li {
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+ul.social-list { 
+    display: flex;
+    flex-direction: row;
+    margin-top: 25px;
+}
+
+ul.social-list li {
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+div.copy {
+    width: 80%;
+    margin-top: 60px;
+}

@@ -1,0 +1,225 @@
+/* Future of Security*/
+.future-security {
+    width: 80%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    margin-top: 30px;
+}
+
+.future-security div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 50%;
+}
+
+.future-security div h1 {
+    font-family: 'Poppins' sans-serif;
+    font-size: 5em;
+    font-weight: bold;
+    color: #212353;
+    line-height: 110%;
+    margin-bottom: 50px;
+}
+
+.future-security div p {
+    width: 380px;
+    margin-bottom: 50px;
+}
+
+.future-security img {
+    width: 45%;
+} 
+
+
+/* How Holmes */
+.how-holmes {
+    display: flex;
+    flex-direction: row;
+
+    width: 80%;
+    background: rgba(77, 118, 181, 0.06);
+    border-radius: 50px;
+
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 130px;
+}
+
+.how-holmes div {
+    width: 45%;
+}
+
+.how-holmes div h2 {
+    font-family: 'Poppins' sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+
+    line-height: 130%;
+    margin-left: 70px;
+
+    color: #212353;
+}
+
+.how-holmes div p {
+    margin-top: 20px;
+    margin-left: 70px;
+}
+
+
+/* Holmes Benefit */
+.holmes-benefits {
+    width: 80%;
+}
+
+.holmes-benefits .benefit-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-top: 50px;
+}
+
+.holmes-benefits .benefit-row .benefit-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 45%;
+}
+
+.holmes-benefits .benefit-row .benefit-item .benefit-icon {
+    margin-right: -150px;
+}
+
+.holmes-benefits .benefit-row .benefit-item .benefit-description {
+    margin-left: -280px;
+    margin-right: 0;
+}
+
+.holmes-benefits .benefit-row .benefit-item .benefit-description h3 {
+    font-family: 'Poppins' sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+
+    margin-bottom: 20px;
+}
+
+.holmes-benefits .benefit-row .benefit-item .benefit-description p {
+    width: 270px;
+}
+
+/* Holmes Pitch */
+.holmes-pitch {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 90px;
+}
+
+
+
+.holmes-pitch div h2 {
+    font-family: 'Poppins' sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+
+    line-height: 130%;
+    color: #212353;
+
+    margin-bottom: 10px;
+}
+
+.holmes-pitch iframe {
+    width: 50%;
+    height: 380px;
+    border: 0;
+}
+
+/* Holmes Plan */
+.holmes-plan {
+    display: flex;
+    flex-direction: column;
+
+    width: 80%;
+    background: #4D76B5;
+    border-radius: 50px;
+
+    margin-top: 130px;
+    margin-bottom: 140px;
+    align-items: center;
+}
+
+.holmes-plan h2 {
+    font-family: 'Poppins' sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+
+    width: 85%;
+
+    line-height: 130%;
+    color: #ffffff;
+
+    margin-top: 65px;
+
+    margin-bottom: 10px;
+}
+
+.holmes-plan .plan-row {
+    display: flex;
+    flex-direction: row;
+    width: 85%;
+    justify-content: space-between;
+}
+
+.holmes-plan .plan-row .plan-item {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 20px;
+    width: 48%;
+    margin-top: 25px;
+    margin-bottom: 65px;
+    box-shadow: 0px 20px 0px rgba(156, 105, 226, 0.3);
+}
+
+.holmes-plan .plan-row .plan-item h2 {
+    font-size: 40px;
+    font-weight: normal;
+    color: #212353;
+    margin-left: 30px;
+}
+
+.holmes-plan .plan-row .plan-item p {
+    font-size: 22px;
+    margin-left: 30px;
+    margin-top: 26px;
+    margin-bottom: 53px;
+}
+
+.holmes-plan .plan-row .plan-item h1 {
+    font-size: 46px;
+    font-weight: bold;
+    color: #212353;
+    margin-left: 30px;
+}
+
+.holmes-plan .plan-row .plan-item h4 {
+    font-family: Lato;
+    font-size: 22px;
+    text-decoration: line-through;
+    margin-left: 30px;
+    font-weight: normal;
+}
+
+.holmes-plan .plan-row .plan-item button {
+    align-self: center;
+    margin-top: 45px;
+    margin-bottom: 42px;
+}

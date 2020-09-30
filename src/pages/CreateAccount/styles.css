@@ -1,0 +1,83 @@
+.register-container {
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 100px;
+}
+
+.register-container img.register-banner {
+    width: 35%;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    
+    width: 30%;
+
+    background-color: rgba(77, 118, 181, 0.06);
+    border-radius: 50px;
+}
+
+.register-form h1 {
+    width: 80%;
+    align-self: center;
+    font-family: Poppins;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 30px;
+    color: #212353;
+}
+
+.register-form p {
+    width: 80%;
+    align-self: center;
+}
+
+/* Input Text*/
+input[type=text], input[type=password], input[type=email]{
+    width: 80%;
+    height: 65px;
+    background-color: #FFF;
+    border-radius: 50px;
+    margin-top: 25px;
+    border: 0;
+    align-self: center;
+
+
+    font-size: 22px;
+
+    color: #3c3c3c;
+    padding-left: 35px;
+}
+
+
+/* Terms */
+.terms-row {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    align-items: center;
+
+    margin-top: 25px;
+}
+
+.terms-row label {
+    margin-left: 15px;
+}
+
+.terms-row label .terms{
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Submit button */
+.register-form button p {
+    margin-right: 10px;
+}

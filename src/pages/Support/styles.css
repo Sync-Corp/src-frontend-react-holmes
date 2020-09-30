@@ -1,0 +1,66 @@
+.support-container {
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-contato {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-left: 35px;
+    background: rgba(77, 118, 181, 0.06);
+    border-radius: 50px;
+
+    width: 35%;
+
+    padding-bottom: 30px;
+}
+
+.form-contato h1 {
+    width: 80%;
+
+    color: #212353;
+    margin-top: 30px;
+}
+
+.form-contato p {
+    width: 80%;
+    margin-bottom: 30px;
+}
+
+.form-contato .subject {
+    background: #FFFFFF;
+    border-radius: 50px;
+    border: 0;
+    width: 80%;
+    height: 65px;
+
+    margin-bottom: 30px;
+    padding-left: 30px;
+
+    font-family: Lato;
+    font-size: 22px;
+}
+
+.form-contato .message {
+    background: #FFFFFF;
+    border-radius: 50px;
+    width: 80%;
+    height: 250px;
+    border: 0;
+    
+    padding: 20px 30px;
+
+    font-family: Lato;
+    font-size: 20px;
+
+    margin-bottom: 30px;
+
+    resize: none;
+}

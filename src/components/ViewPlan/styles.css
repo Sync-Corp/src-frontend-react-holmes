@@ -1,0 +1,62 @@
+.view-plan-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 55px;
+    height: 100vh;
+    width: 100%;
+}
+
+.view-plan-container .plan-info {
+    background: rgba(77, 118, 181, 0.06);
+    border-radius: 50px;
+    width: 35%;
+} 
+
+.view-plan-container .plan-info h1 {
+    font: 700 40px 'Poppins';
+    color: #212353;
+}
+
+.view-plan-container .plan-info .plan-item {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 20px;
+    width: 48%;
+    margin-top: 25px;
+    margin-bottom: 65px;
+    box-shadow: 0px 20px 0px rgba(156, 105, 226, 0.3);
+}
+.view-plan-container .plan-info .plan-item {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 20px;
+    margin-top: 25px;
+    margin-bottom: 65px;
+    box-shadow: 0px 20px 0px rgba(156, 105, 226, 0.3);
+}
+
+.plan-item h2 {
+    font: 700 46px 'Lato', sans-serif;
+    color: #212353;
+}
+
+.plan-item h3 {
+    font: 400 40px 'Poppins', sans-serif;
+    color: #212353;
+}
+
+.plan-item p {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font: 500 22px 'Lato', sans-serif;
+}
+
+.plan-item p strong {
+    font: 700 22px 'Poppins';
+    color: #212353;
+}

@@ -1,0 +1,45 @@
+.user-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.user-container img {
+    width: 50px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.user-container p {
+    font: 500 22px 'Lato';
+    color: #4B5D68;
+    cursor: pointer;
+}
+
+.user-menu-hidden {
+    display: none;
+}
+
+.user-menu {
+    display: block;
+    position: absolute;
+    float: right;
+    background: #212353;
+    border-radius: 20px;
+    padding: 5px 0;
+    margin-top: 10px;
+}
+
+.user-menu span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 25px;
+    cursor: pointer;
+}
+
+.user-menu span p {
+    font: 500 18px 'Lato';
+    margin-left: 10px;
+    color: #FFF;
+}
