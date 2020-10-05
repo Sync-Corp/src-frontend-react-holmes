@@ -8,6 +8,7 @@ import Plan from './pages/Plan';
 import Payment from './pages/Payment';
 import Download from './pages/Download';
 import Support from './pages/Support';
+import MyAccount from './pages/MyAccount';
 
 function Routes() {
     return (
@@ -19,6 +20,7 @@ function Routes() {
             <Route path="/payment" component={Payment} />
             <Route path="/download" component={Download} />
             <Route path="/support" component={Support} />
+            <Route path="/my-account" component={MyAccount} />
         </BrowserRouter>
     )
 }
