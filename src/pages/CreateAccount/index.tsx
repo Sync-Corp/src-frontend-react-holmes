@@ -12,13 +12,19 @@ import './styles.css';
 function CreateAccount() {
     const history = useHistory();
 
+    const [pessoaFisica, setPessoaFisica] = useState(false);
+    const [pessoaJuridica, setPessoaJuridica] = useState(false);
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+
+    const [cpf, setCpf] = useState('');
+    const [cnpj, setCnpj] = useState('');
+    const [branch, setBranch] = useState('');
+
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [institutionName, setInstitutionName] = useState('');
-    const [institutionType, setInstitutionType] = useState('');
-    const [cnpj, setCnpj] = useState('');
+    
 
     async function handleRegister(e: FormEvent) {
         e.preventDefault();
@@ -28,23 +34,44 @@ function CreateAccount() {
             return;
         }
 
-        const user = {
-            name,
-            email,
-            password,
-            institutionName,
-            institutionType,
-            cnpj
-        };
+        if(pessoaFisica) {
+            const user = {
+                name,
+                cpf,
+                email,
+                password,
+                legal_person: false
+            };
+    
+            try {
+                await api.post('/users', user);
+    
+                history.push("/login");
+            } catch (err) {
+                alert('Não foi possivel efeutuar o cadastro');
+                console.log(err);
+            }
+        } else {
+            const user = {
+                institution_name: name,
+                cnpj,
+                institution_branch: branch,
+                email,
+                password,
+                legal_person: true
+            };
 
-        try {
-            await api.post('/users', user);
-
-            history.push("/login");
-        } catch (err) {
-            alert('Não foi possivel efeutuar o cadastro');
-            console.log(err);
+            try {
+                await api.post('/users', user);
+    
+                history.push("/login");
+            } catch (err) {
+                alert('Não foi possivel efeutuar o cadastro');
+                console.log(err);
+            }
         }
+
+        
     }
 
     return (
@@ -59,57 +86,125 @@ function CreateAccount() {
 
                     <p>Já tem uma conta? <strong><Link to="/login">Faça seu login.</Link></strong></p>
 
-                    <input 
-                        type="text" 
-                        placeholder="Nome" 
-                        value={name} 
-                        onChange={event => setName(event.target.value)}
-                        required/>
+                    <div className="radio-container">
+                        <span>
+                            <input 
+                            type="radio" 
+                            id="rbFisica" 
+                            name="cadastro" 
+                            checked={pessoaFisica} 
+                            onChange={e => {
+                                setPessoaFisica(!pessoaFisica); 
+                                if(pessoaFisica!==pessoaJuridica)
+                                    setPessoaJuridica(!pessoaJuridica);
+                            }}/>
+                            <label htmlFor="rbFisica">Pessoa Física</label>
+                        </span>
+                        {pessoaFisica &&
+                            <>
+                               <input 
+                                    type="text" 
+                                    placeholder="Nome" 
+                                    value={name} 
+                                    onChange={event => setName(event.target.value)}
+                                    required/>
 
-                    <input 
-                        type="email" 
-                        placeholder="E-mail" 
-                        value={email} 
-                        onChange={event => setEmail(event.target.value)}
-                        required/>
+                                <input 
+                                    type="text" 
+                                    placeholder="CPF" 
+                                    value={cpf} 
+                                    onChange={event => setCpf(event.target.value)}
+                                    required/>
 
-                    <input 
-                        type="text" 
-                        placeholder="Nome da instituição" 
-                        value={institutionName} 
-                        onChange={event => setInstitutionName(event.target.value)}
-                        required/>
+                                <input 
+                                    type="email" 
+                                    placeholder="E-mail" 
+                                    value={email} 
+                                    onChange={event => setEmail(event.target.value)}
+                                    required/>
 
-                    <div className="form-row">
-                        <input 
-                            type="text" 
-                            placeholder="CNPJ" 
-                            value={cnpj} 
-                            onChange={event => setCnpj(event.target.value)}
-                            required/>   
+                                <div className="form-row">
+                                    <input 
+                                        type="password" 
+                                        placeholder="Senha" 
+                                        value={password} 
+                                        onChange={event => setPassword(event.target.value)}
+                                        required/>
 
-                        <input 
-                            type="text" 
-                            placeholder="Tipo de Instituição" 
-                            value={institutionType} 
-                            onChange={event => setInstitutionType(event.target.value)}
-                            required/>    
-                    </div>         
+                                    <input 
+                                        type="password" 
+                                        placeholder="Repetir Senha" 
+                                        value={confirmPassword} 
+                                        onChange={event => setConfirmPassword(event.target.value)}
+                                        required/>
+                                </div>
+                            </>
+                        }
+                    </div>
 
-                    <div className="form-row">
-                        <input 
-                            type="password" 
-                            placeholder="Senha" 
-                            value={password} 
-                            onChange={event => setPassword(event.target.value)}
-                            required/>
+                    <div className="radio-container">
+                        <span>
+                            <input 
+                            type="radio" 
+                            id="rbJuridica" 
+                            name="cadastro" 
+                            checked={pessoaJuridica} 
+                            onChange={e => {
+                                setPessoaJuridica(!pessoaJuridica); 
+                                if(pessoaFisica!==pessoaJuridica)
+                                    setPessoaFisica(!pessoaFisica);
+                            }}/>
+                            <label htmlFor="rbJuridica">Pessoa Jurídica</label>
+                        </span>
+                        {pessoaJuridica &&
+                            <>
+                                <input 
+                                    type="text" 
+                                    placeholder="Nome da Instituição" 
+                                    value={name} 
+                                    onChange={event => setName(event.target.value)}
+                                    required/>
 
-                        <input 
-                            type="password" 
-                            placeholder="Repetir Senha" 
-                            value={confirmPassword} 
-                            onChange={event => setConfirmPassword(event.target.value)}
-                            required/>
+                                <div className="form-row">
+                                    <input 
+                                        type="text" 
+                                        placeholder="CNPJ" 
+                                        value={cnpj} 
+                                        onChange={event => setCnpj(event.target.value)}
+                                        required/>
+
+                                    <input 
+                                        type="text" 
+                                        placeholder="Ramo da empresa" 
+                                        value={branch} 
+                                        onChange={event => setBranch(event.target.value)}
+                                        required/>
+                                </div>
+
+                                <input 
+                                    type="email" 
+                                    placeholder="E-mail" 
+                                    value={email} 
+                                    onChange={event => setEmail(event.target.value)}
+                                    required/>
+
+                                <div className="form-row">
+                                    <input 
+                                        type="password" 
+                                        placeholder="Senha" 
+                                        value={password} 
+                                        onChange={event => setPassword(event.target.value)}
+                                        required/>
+
+                                    <input 
+                                        type="password" 
+                                        placeholder="Repetir Senha" 
+                                        value={confirmPassword} 
+                                        onChange={event => setConfirmPassword(event.target.value)}
+                                        required/>
+                                </div>
+                            </>
+                        }
                     </div>
 
                     <span className="terms-row">
