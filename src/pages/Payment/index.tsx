@@ -1,33 +1,64 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
 import Header from '../../components/Header';
 
 import payment from '../../assets/images/payment.svg';
-import rightArrow from '../../assets/icons/white-right-arrow.svg';
 import leftArrow from '../../assets/icons/white-left-arrow.svg';
 
 import './styles.css';
+import PlanType from '../../models/PlanType';
+import api from '../../services/api';
+import User from '../../models/User';
 
 const Payment = () => {
     const history = useHistory();
+    const location = useLocation();
 
-    const [price, setPrice] = useState('0');
+    const [plan, setPlan] = useState<PlanType>({} as PlanType);
     const [card, setCard] = useState(false);
     const [billet, setBillet] = useState(false);
+    const [user, setUser] = useState<User>();
 
-    function handldeSelectPaymentMode() {
-        history.push('/download');
+    useEffect(() => {
+        async function getUser() {
+            try {
+                const response = await api.get("/users", {
+                    headers: { Authorization: "Bearer " + localStorage.getItem('session') }
+                });
+
+                setUser(response.data);
+            } catch(err) {
+            }
+        }
+        if(localStorage.getItem('session'))
+            getUser();
+    }, []);
+
+    useEffect(() => {
+        //@ts-ignore
+        setPlan(location.state.plan);
+        console.log(plan);
+    }, []);
+
+    async function handldeSelectPaymentMode() {
+        const data = {
+            person_id: user?.id,
+            plan_type_id: plan.id
+        }
+        try {
+            await api.post('plan', data);
+
+            alert('Pagamento efeutado com sucesso!')
+            history.push('/download');
+        } catch(err) {
+            alert('Não foi possivel realizar o pagamento');
+        }
     }
 
     function handleBackToChoosePlan() {
         history.push('/choose-plan');
     }
-
-    useEffect(() => {
-        const value = sessionStorage.getItem('price');
-        setPrice(`${value}`);
-    }, [])
 
     return (
         <>
@@ -55,7 +86,7 @@ const Payment = () => {
                             <>
                                 <span className="radio-row">
                                     <p>Total a pagar:</p>
-                                    <p className="value">R${`${price}`}</p>
+                                    <p className="value">{plan.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
                                 </span>
                                 <span className="radio-row">
                                     <p>Data de vencimento:</p>
@@ -83,7 +114,7 @@ const Payment = () => {
                         <>
                             <span className="radio-row">
                                 <p>Total a pagar:</p>
-                                <p className="value">R${`${price}`}</p>
+                                <p className="value">{plan.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
                             </span>
                             <span className="radio-row">
                                 <input type="text" placeholder="Número do Cartão"/>
@@ -103,8 +134,7 @@ const Payment = () => {
                             <p>Voltar</p>
                         </button>
                         <button onClick={handldeSelectPaymentMode} className="icon-button">
-                            <p>Proximo passo</p>
-                            <img src={rightArrow} alt="Seta para a direita"/>
+                            <p>Finalizar</p>
                         </button>
                     </div>
                 </form>

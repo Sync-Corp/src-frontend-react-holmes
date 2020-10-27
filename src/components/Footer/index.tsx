@@ -30,33 +30,33 @@ function Footer() {
                 </span>
                 <span className="know">
                     <h4>Conheça</h4>
-                    <p>
+                    <div>
                         <ul className="footer-list">
                             <li>Sobre</li>
                             <li>Planos</li>
                             <li>Comprar</li>
                         </ul>
-                    </p>
+                    </div>
                 </span>
                 <span className="find">
                     <h4>Encontre</h4>
-                    <p>
+                    <div>
                         <ul className="footer-list">
                             <li>Acesso</li>
                             <li>Suporte</li>
                             <li>Sync</li>
                         </ul>
-                    </p>
+                    </div>
                 </span>
                 <span className="social">
                     <h4>Redes sociais</h4>
-                    <p>
+                    <div>
                         <ul className="social-list">
                             <li><img src={facebook} alt="Facebook icon"/></li>
                             <li><img src={twitter} alt="Twitter icon"/></li>
                             <li><img src={instagram} alt="Instagram icon"/></li>
                         </ul>
-                    </p>
+                    </div>
                 </span>
             </div>
             <div className="copy">

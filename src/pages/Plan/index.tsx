@@ -5,7 +5,6 @@ import Header from '../../components/Header';
 import './styles.css';
 
 const Plan = () => {
-    
     return (
         <>
             <Header page="plans"/>

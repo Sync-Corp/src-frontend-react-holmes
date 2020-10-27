@@ -40,7 +40,7 @@ function CreateAccount() {
                 cpf,
                 email,
                 password,
-                legal_person: false
+                type: 'NATURAL'
             };
     
             try {
@@ -53,12 +53,12 @@ function CreateAccount() {
             }
         } else {
             const user = {
-                institution_name: name,
+                name,
                 cnpj,
-                institution_branch: branch,
+                role: branch,
                 email,
                 password,
-                legal_person: true
+                type: 'JURIDICAL'
             };
 
             try {
