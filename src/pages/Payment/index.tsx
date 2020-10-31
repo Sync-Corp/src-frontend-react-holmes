@@ -51,6 +51,7 @@ const Payment = () => {
     useEffect(() => {
         //@ts-ignore
         setPlan(location.state.plan);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     async function handldeSelectPaymentMode() {
@@ -59,7 +60,7 @@ const Payment = () => {
             plan_type_id: plan.id
         }
         try {
-            //await api.post('plan', data);
+            await api.post('plan', data);
             setModalVisible(true);
         } catch(err) {
             alert('Não foi possivel realizar o pagamento');

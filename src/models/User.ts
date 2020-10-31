@@ -3,11 +3,8 @@ export default interface User {
     email: string;
     
     name?: string;
-    institution_name?: string;
-    institution_branch?: string;
+    role?: string;
 
     cpf?: string;
     cnpj?: string;
-
-    plan_id?: number;
 }

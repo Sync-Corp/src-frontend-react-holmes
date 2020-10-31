@@ -13,8 +13,6 @@ function ChoosePlan() {
             try {
                 const res = await api.get('plan');
 
-                console.log(res);
-
                 setPlans(res.data);
             } catch(err) {
                 alert('Erro ao carregar os planos');

@@ -45,10 +45,12 @@ const UserArea: React.FC<UserAreaProps> = ({ user, setUser }) => {
                         <span>Minha conta</span>
                     </div>
                 </Link>
-                <div>
-                    <img src={myPlan} alt="Ícone meu plano"/>
-                    <span>Meu plano</span>
-                </div>
+                <Link to="/my-plan">
+                    <div>
+                        <img src={myPlan} alt="Ícone meu plano"/>
+                        <span>Meu plano</span>
+                    </div>
+                </Link>
                 <Link to="/support">
                     <div>
                         <img src={contact} alt="Ícone contato"/>

@@ -39,8 +39,8 @@ function MyAccount() {
                 <img src={accountBanner} alt="Homem gerenciando sua conta"/>
                 <div className="account-info">
                     <h1>Minha conta:</h1>
-                    <img src={userDefault} alt={`${user?.name}${user?.institution_name}`}/>
-                    <h2>{user?.name}{user?.institution_name}</h2>
+                    <img src={userDefault} alt={`${user?.name}`}/>
+                    <h2>{user?.name}</h2>
                     <p>{user?.email}</p>
                     <button>Editar meu perfil</button>
                     <span className="buttons-row">

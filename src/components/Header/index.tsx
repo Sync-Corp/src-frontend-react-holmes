@@ -26,11 +26,12 @@ const Header:React.FC<HeaderConfig> = ({page}) => {
                 });
 
                 setUser(response.data);
-            } catch(err) {
-            }
+            } catch(err) {}
         }
-        if(localStorage.getItem('session'))
+        if(localStorage.getItem('session')) {
             getUser();
+        }
+            
     }, []);
 
     return (
