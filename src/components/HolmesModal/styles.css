@@ -44,3 +44,7 @@
     padding: 15px 60px;
     margin: 25px 0;
 }
+
+.modal-footer button:hover {
+    background-color: #F2994A;
+}

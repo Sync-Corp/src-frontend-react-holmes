@@ -14,7 +14,7 @@ interface HolmesModalProps {
 }
 
 const HolmesModal:React.FC<HolmesModalProps> = (props) => {
-    const [show, setShow] = useState(true);
+    const [show] = useState(true);
 
     function close() {
         props.setVisible(false);

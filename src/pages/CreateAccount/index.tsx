@@ -8,6 +8,7 @@ import Header from '../../components/Header';
 import registerBanner from '../../assets/images/register-banner.svg';
 
 import './styles.css';
+import HolmesModal from '../../components/HolmesModal';
 
 function CreateAccount() {
     const history = useHistory();
@@ -25,6 +26,17 @@ function CreateAccount() {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     
+    const [isModalVisible, setModalVisible] = useState(false);
+
+    const holmesModal = HolmesModal({
+        title: "É um prazer conhecê-lo.",
+        message: "Sua conta foi cadastrada com sucesso! Agora é só fazer o Login.",
+        buttonText: "Vamos lá!",
+        setVisible: setModalVisible,
+        confirmAction: () => {
+            history.push('/login');
+        }
+    });
 
     async function handleRegister(e: FormEvent) {
         e.preventDefault();
@@ -34,50 +46,35 @@ function CreateAccount() {
             return;
         }
 
-        if(pessoaFisica) {
-            const user = {
-                name,
-                cpf,
-                email,
-                password,
-                type: 'NATURAL'
-            };
-    
-            try {
-                await api.post('/users', user);
-    
-                history.push("/login");
-            } catch (err) {
-                alert('Não foi possivel efeutuar o cadastro');
-                console.log(err);
-            }
-        } else {
-            const user = {
-                name,
-                cnpj,
-                role: branch,
-                email,
-                password,
-                type: 'JURIDICAL'
-            };
-
-            try {
-                await api.post('/users', user);
-    
-                history.push("/login");
-            } catch (err) {
-                alert('Não foi possivel efeutuar o cadastro');
-                console.log(err);
-            }
-        }
-
+        const geralData = {
+            name,
+            email,
+            password,
+            type: pessoaFisica ? 'NATURAL' : 'JURIDICAL'
+        };
         
+        let user;
+        if(pessoaFisica)
+            user = {...geralData, cpf}
+        else
+            user = {...geralData, cnpj, role: branch}
+
+        try {
+            await api.post('/users', user);
+
+            setModalVisible(true);
+        } catch (err) {
+            alert('Não foi possivel efeutuar o cadastro');
+            console.log(err);
+        }
     }
 
     return (
         <>
             <Header />
             
+            {isModalVisible && holmesModal}
+
             <main className="register-container">
                 <img src={registerBanner} className="register-banner" alt="Mulher aguardando cadastro"/>
 
