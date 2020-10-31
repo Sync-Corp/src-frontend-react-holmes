@@ -7,8 +7,7 @@ header {
     margin-top: 50px;
 }
 
-header nav {
-    display: flex;
+.right-menu-area {
     align-items: flex-end;
 }
 
@@ -33,4 +32,8 @@ ul#top-menu li {
 
 .unselected {
     color: #4B5D68;
+}
+
+a:hover {
+    text-decoration: none;
 }

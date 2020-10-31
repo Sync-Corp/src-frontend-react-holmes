@@ -8,6 +8,7 @@ import instagram from '../../assets/icons/instagram.svg';
 import twitter from '../../assets/icons/twitter.svg';
 
 import './styles.css';
+import { Link } from 'react-router-dom';
 
 function Footer() {
     return (
@@ -16,7 +17,11 @@ function Footer() {
                 <img src={logo} alt="Logo Holmes"/>
                 <span className="buttons-container">
                     <button className="common-button">Saiba mais</button>
-                    {!localStorage.getItem('session') && <LoginButton />}
+                    {!localStorage.getItem('session') && 
+                        <Link to="/register" className="common-link">
+                            <LoginButton />
+                        </Link>
+                    }
                 </span>
             </div>
             <div className="footer-info">

@@ -1,0 +1,46 @@
+.modal-container {
+    border: 0;
+    border-radius: 20px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: center;
+    border: 0;
+}
+
+.modal-title {
+    font: 700 40px 'Poppins', sans-serif;
+    margin-top: 40px;
+    color: #212353;
+}
+
+.modal-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: -20px;
+    margin-right: -30px;
+}
+
+.modal-message p {
+    font: 400 24px 'Lato', sans-serif;
+    text-align: center;
+    margin: 0 50px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: center;
+    border: 0;
+}
+
+.modal-footer button {
+    font: 700 22px 'Lato', sans-serif;
+    color: #fff;
+    border: 0;
+    border-radius: 50px;
+    background-color: #F2994A;
+    padding: 15px 60px;
+    margin: 25px 0;
+}

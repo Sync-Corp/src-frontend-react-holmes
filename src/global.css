@@ -29,7 +29,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 button {
+    font: 500 22px 'Lato', sans-serif;
     cursor: pointer;
+    outline: 0;
+    border: 0;
+}
+
+p {
+    font: 500 18px 'Lato', sans-serif 
 }
 
 .container {
@@ -47,6 +54,7 @@ button {
     border-radius: 50px;
     border: 0;
     margin-right: 15px;
+    outline: 0;
 } 
 
 .common-link {
@@ -109,3 +117,4 @@ a {
 
 a:link { color: #4B5D68; }
 a:visited { color: #4B5D68; }
+a:hover {   text-decoration:  none; }

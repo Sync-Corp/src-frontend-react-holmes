@@ -6,7 +6,7 @@ import './styles.css';
 
 function LoginButton() {
     return (
-        <button className="login"><p>Comece agora</p> <img src={arrowLeft} alt="Arrow Left"/> </button>
+        <button className="login"><span>Comece agora</span> <img src={arrowLeft} alt="Arrow Left"/> </button>
     )
 }
 

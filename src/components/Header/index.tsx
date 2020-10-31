@@ -63,7 +63,6 @@ const Header:React.FC<HeaderConfig> = ({page}) => {
                         <LoginButton />
                     </Link>)
                 }
-
             </span>
         </header>
     )

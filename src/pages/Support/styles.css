@@ -23,6 +23,7 @@
 }
 
 .form-contato h1 {
+    font: 700 40px 'Poppins', sans-serif;
     width: 80%;
 
     color: #212353;

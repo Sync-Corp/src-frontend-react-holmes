@@ -1,0 +1,45 @@
+.plan-item {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 20px;
+    margin-top: 25px;
+    width: 48%;
+    margin-bottom: 65px;
+    box-shadow: 0px 20px 0px rgba(156, 105, 226, 0.3);
+}
+
+.plan-item h2 {
+    font-size: 40px;
+    font-weight: normal;
+    color: #212353;
+    margin-left: 30px;
+}
+
+.plan-item p {
+    font-size: 22px;
+    margin-left: 30px;
+    margin-top: 26px;
+    margin-bottom: 53px;
+}
+
+.plan-item h1 {
+    font-size: 46px;
+    font-weight: bold;
+    color: #212353;
+    margin-left: 30px;
+}
+
+.plan-item h4 {
+    font-family: Lato;
+    font-size: 22px;
+    text-decoration: line-through;
+    margin-left: 30px;
+    font-weight: normal;
+}
+
+.plan-item button {
+    align-self: center;
+    margin-top: 45px;
+    margin-bottom: 42px;
+}

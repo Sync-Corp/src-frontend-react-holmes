@@ -35,30 +35,30 @@ const UserArea: React.FC<UserAreaProps> = ({ user, setUser }) => {
         <>
             <span className="user-container" onClick={handleUpdateUserMenu}>
                 <img src={userIcon} alt="Avatar do usuario"/>
-                <p>{user.name}</p>
+                <span>{user.name}</span>
             </span>
 
             <div className={`${colapsed ? 'user-menu':'user-menu-hidden'}`}>
                 <Link to="/my-account">
-                    <span>
+                    <div>
                         <img src={myAccount} alt="Ícone minha conta"/>
-                        <p>Minha conta</p>
-                    </span>
+                        <span>Minha conta</span>
+                    </div>
                 </Link>
-                <span>
+                <div>
                     <img src={myPlan} alt="Ícone meu plano"/>
-                    <p>Meu plano</p>
-                </span>
+                    <span>Meu plano</span>
+                </div>
                 <Link to="/support">
-                    <span>
+                    <div>
                         <img src={contact} alt="Ícone contato"/>
-                        <p>Contato</p>
-                    </span>
+                        <span>Contato</span>
+                    </div>
                 </Link>
-                <span onClick={handleExit}>
+                <div onClick={handleExit}>
                     <img src={exit} alt="Ícone sair"/>
-                    <p>Sair</p>
-                </span>
+                    <span>Sair</span>
+                </div>
             </div>
         </>
     );

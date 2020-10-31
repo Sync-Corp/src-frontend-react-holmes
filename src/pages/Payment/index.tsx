@@ -6,10 +6,12 @@ import Header from '../../components/Header';
 import payment from '../../assets/images/payment.svg';
 import leftArrow from '../../assets/icons/white-left-arrow.svg';
 
-import './styles.css';
 import PlanType from '../../models/PlanType';
 import api from '../../services/api';
 import User from '../../models/User';
+
+import './styles.css';
+import HolmesModal from '../../components/HolmesModal';
 
 const Payment = () => {
     const history = useHistory();
@@ -19,6 +21,17 @@ const Payment = () => {
     const [card, setCard] = useState(false);
     const [billet, setBillet] = useState(false);
     const [user, setUser] = useState<User>();
+    const [isModalVisible, setModalVisible] = useState(false);
+
+    const holmesModal = HolmesModal({
+        title: "Quase lá",
+        message: "Em alguns dias seu pagamento será processado. Assim que for reconhecido, você poderá acessar as funcionalidades do Holmes utilizando sua conta. Você pode ver a situação do pagamento em Perfil > Meu Plano.",
+        buttonText: "Ok, entendi.",
+        setVisible: setModalVisible,
+        confirmAction: () => {
+            history.push('/my-account');
+        }
+    });
 
     useEffect(() => {
         async function getUser() {
@@ -38,7 +51,6 @@ const Payment = () => {
     useEffect(() => {
         //@ts-ignore
         setPlan(location.state.plan);
-        console.log(plan);
     }, []);
 
     async function handldeSelectPaymentMode() {
@@ -47,10 +59,8 @@ const Payment = () => {
             plan_type_id: plan.id
         }
         try {
-            await api.post('plan', data);
-
-            alert('Pagamento efeutado com sucesso!')
-            history.push('/download');
+            //await api.post('plan', data);
+            setModalVisible(true);
         } catch(err) {
             alert('Não foi possivel realizar o pagamento');
         }
@@ -64,6 +74,9 @@ const Payment = () => {
         <>
             <Header page="plans"/>
 
+            {isModalVisible && holmesModal}
+
+
             <main className="payment-container">
                 <form onSubmit={(e) => e.preventDefault()}>
                     <h1>Realize o Pagamento.</h1>
@@ -75,6 +88,7 @@ const Payment = () => {
                             id="rbBoleto" 
                             name="pagamento" 
                             checked={billet} 
+                            required
                             onChange={e => {
                                 setBillet(!billet); 
                                 if(card!==billet)
@@ -117,12 +131,12 @@ const Payment = () => {
                                 <p className="value">{plan.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
                             </span>
                             <span className="radio-row">
-                                <input type="text" placeholder="Número do Cartão"/>
-                                <input type="text" placeholder="MM / AA"/>
+                                <input type="text" placeholder="Número do Cartão" required/>
+                                <input type="text" placeholder="MM / AA" required/>
                             </span>
                             <span className="radio-row">
-                                <input type="text" placeholder="Nome do Titular"/>
-                                <input type="text" placeholder="CVV"/>
+                                <input type="text" placeholder="Nome do Titular" required/>
+                                <input type="text" placeholder="CVV" required/>
                             </span>
                         </>
                         }
@@ -141,8 +155,6 @@ const Payment = () => {
 
                 <img src={payment} alt="Pagamento"/>
             </main>
-
-
         </>
     );
 }

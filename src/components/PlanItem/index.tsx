@@ -4,6 +4,8 @@ import PlanType from '../../models/PlanType';
 import User from '../../models/User';
 import api from '../../services/api';
 
+import './styles.css';
+
 interface PlanItemProps {
     plan: PlanType
 }
