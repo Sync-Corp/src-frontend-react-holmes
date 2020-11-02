@@ -146,10 +146,10 @@ const Payment = () => {
                     <div className="buttons-row">
                         <button onClick={handleBackToChoosePlan} className="icon-back-button">
                             <img src={leftArrow} alt="Seta para a esquerda"/>
-                            <p>Voltar</p>
+                            <span>Voltar</span>
                         </button>
                         <button onClick={handldeSelectPaymentMode} className="icon-button">
-                            <p>Finalizar</p>
+                            <span>Finalizar</span>
                         </button>
                     </div>
                 </form>
