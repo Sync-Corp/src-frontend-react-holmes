@@ -35,6 +35,10 @@ button {
     border: 0;
 }
 
+button:focus {
+    outline: 0;
+}
+
 p {
     font: 500 18px 'Lato', sans-serif 
 }

@@ -53,6 +53,8 @@
 .plan-item h3 {
     font: 400 40px 'Poppins', sans-serif;
     color: #212353;
+    margin-left: 30px;
+    margin-top: 30px;
 }
 
 .plan-item p {
@@ -60,6 +62,7 @@
     flex-direction: row;
     justify-content: space-between;
     font: 500 22px 'Lato', sans-serif;
+    margin-right: 30px;
 }
 
 .plan-item p strong {

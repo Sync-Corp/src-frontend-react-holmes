@@ -10,6 +10,7 @@ import api from '../../services/api';
 import './styles.css';
 import Plan from '../../models/Plan';
 import PlanType from '../../models/PlanType';
+import date_format from '../../utils/date_format';
 
 function MyPlan() {
     const history = useHistory();
@@ -66,7 +67,7 @@ function MyPlan() {
                         <h2>{planType?.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</h2>
                         <p>
                             Data de Vencimento:
-                            <strong>{`${plan?.final_date}`}</strong>
+                            <strong>{`${date_format(plan?.final_date.toString())}`}</strong>
                         </p>
                         <button className="common-button">Renovar</button>
                     </div>
