@@ -50,19 +50,28 @@ function CreateAccount() {
             name,
             email,
             password,
+            file: {
+                id: 1
+            },
             type: pessoaFisica ? 'NATURAL' : 'JURIDICAL'
         };
         
         let user;
-        if(pessoaFisica)
-            user = {...geralData, cpf}
-        else
-            user = {...geralData, cnpj, role: branch}
 
         try {
-            await api.post('/users', user);
+            if(pessoaFisica) {
+                user = {...geralData, cpf}
+    
+                await api.post('/n-person', user)
+            }
+            else {
+                user = {...geralData, cnpj, role: branch}
+    
+                await api.post('/j-person', user)
+            }
 
             setModalVisible(true);
+
         } catch (err) {
             alert('Não foi possivel efeutuar o cadastro');
             console.log(err);

@@ -1,7 +1,14 @@
+import PlanType from "./PlanType";
+import User from "./User";
+
 export default interface Plan {
     id: number,
-    final_date: Date,
-    initial_date: Date,
-    person_id: number,
-    plan_type_id: number
+    finalDate: Date,
+    initialDate: Date,
+    person: User,
+    planType: PlanType
+}
+
+export interface PlanRequest {
+    planType: PlanType
 }

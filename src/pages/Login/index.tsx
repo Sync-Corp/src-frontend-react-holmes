@@ -18,15 +18,22 @@ function Login() {
     async function handleLogin(e: FormEvent) {
         e.preventDefault();
 
-        const loginObject = {
-            email,
-            password
-        }
-
         try {
-            const user = await api.post('/authenticate', loginObject);
+            const formData = new FormData();
+            formData.append('grant_type', 'password')
+            formData.append('username', email);
+            formData.append('password', password);
 
-            localStorage.setItem('session', user.data.token); 
+            const config = {
+                headers: {
+                    'content-type': 'application/x-www-form-urlencoded',
+                    'authorization': 'Basic aG9sbWVzLWZyb250Okx6cXdZWkliZW9CVWhmc0tkdnpLVlU3cnN0V2J6SVk5NWN2VTExVjU='
+                },
+            }
+
+            const response = await api.post("oauth/token", formData, config);
+
+            localStorage.setItem('token', response.data.access_token); 
 
             history.push('/choose-plan');
         } catch (err) {

@@ -30,13 +30,12 @@ const PlanItem: React.FC<PlanItemProps> = ({ plan }) => {
     useEffect(() => {
         async function getUser() {
             try {
-                const response = await api.get("/users", {
-                    headers: { Authorization: "Bearer " + localStorage.getItem('session') }
+                const response = await api.get("/person", {
+                    headers: { Authorization: "Bearer " + localStorage.getItem('token') }
                 });
 
                 setUser(response.data);
-            } catch(err) {
-            }
+            } catch(err) {}
         }
 
         getUser();

@@ -3,6 +3,6 @@ export default interface PlanType {
     name: string,
     description: string,
     price: number,
-    cameras_number: number,
+    camerasNumber: number,
     months: number
 }

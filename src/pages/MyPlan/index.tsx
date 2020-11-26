@@ -21,30 +21,28 @@ function MyPlan() {
     const [ planType, setPlanType ] = useState<PlanType>();
 
     useEffect(() => {
-        if(!localStorage.getItem('session'))
+        if(!localStorage.getItem('token'))
             history.push('/login');
 
         async function getUser() {
             try {
-                const resUser = await api.get("/users", {
-                    headers: { Authorization: "Bearer " + localStorage.getItem('session') }
-                });
-
-                const resPlan = await api.get(`/plan/${resUser.data.id}`);
-
-                const resType = await api.get(`/plan-type/${resPlan.data.plan_type_id}`);
-
-                if(!resPlan.data.id) {
-                    alert('Você ainda não possui um plano!')
-                    history.push('/choose-plan');
+                const config = {
+                    headers: { 
+                        Authorization: "Bearer " + localStorage.getItem('token') 
+                    }
                 }
+
+                const resUser = await api.get("/person", config);
+
+                const resPlan = await api.get(`/person/${resUser.data.id}/plan`, config);
 
                 setUser(resUser.data);
                 setPlan(resPlan.data);
-                setPlanType(resType.data);
+                setPlanType(resPlan.data.planType);
                 
             } catch(err) {
-                history.push('/login');
+                alert('Você ainda não possui um plano!')
+                history.push('/choose-plan');
             }
         }
 
@@ -64,10 +62,10 @@ function MyPlan() {
                             {planType?.description}
                         </p>
 
-                        <h2>{planType?.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</h2>
+                        <h2>{planType?.price.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</h2>
                         <p>
                             Data de Vencimento:
-                            <strong>{`${date_format(plan?.final_date.toString())}`}</strong>
+                            <strong>{`${date_format(plan?.finalDate.toString())}`}</strong>
                         </p>
                         <button className="common-button">Renovar</button>
                     </div>

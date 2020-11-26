@@ -11,7 +11,7 @@ function ChoosePlan() {
     useEffect(() => {
         async function GetPlans() {
             try {
-                const res = await api.get('plan');
+                const res = await api.get('plan-type');
 
                 setPlans(res.data);
             } catch(err) {

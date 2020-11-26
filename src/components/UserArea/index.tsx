@@ -26,7 +26,7 @@ const UserArea: React.FC<UserAreaProps> = ({ user, setUser }) => {
     }
 
     function handleExit() {
-        localStorage.removeItem('session');
+        localStorage.removeItem('token');
         setUser(undefined);
         history.push('/');
     }
