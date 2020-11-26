@@ -6,6 +6,7 @@ import Header from '../../components/Header';
 import payment from '../../assets/images/payment.svg';
 import leftArrow from '../../assets/icons/white-left-arrow.svg';
 
+import Plan, { PlanRequest } from '../../models/Plan';
 import PlanType from '../../models/PlanType';
 import api from '../../services/api';
 import User from '../../models/User';
@@ -36,15 +37,15 @@ const Payment = () => {
     useEffect(() => {
         async function getUser() {
             try {
-                const response = await api.get("/users", {
-                    headers: { Authorization: "Bearer " + localStorage.getItem('session') }
+                const response = await api.get("/person", {
+                    headers: { Authorization: "Bearer " + localStorage.getItem('token') }
                 });
 
                 setUser(response.data);
-            } catch(err) {
-            }
+            } catch(err) {}
         }
-        if(localStorage.getItem('session'))
+
+        if(localStorage.getItem('token'))
             getUser();
     }, []);
 
@@ -55,13 +56,20 @@ const Payment = () => {
     }, []);
 
     async function handldeSelectPaymentMode() {
-        const data = {
-            person_id: user?.id,
-            plan_type_id: plan.id
+        const config = {
+            headers: { 
+                Authorization: "Bearer " + localStorage.getItem('token') 
+            }
         }
+
+        const planRequest: PlanRequest = {
+            planType: plan
+        }
+        
         try {
-            await api.post('plan', data);
+            await api.post('plan', planRequest, config);
             setModalVisible(true);
+
         } catch(err) {
             alert('Não foi possivel realizar o pagamento');
         }
@@ -76,7 +84,6 @@ const Payment = () => {
             <Header page="plans"/>
 
             {isModalVisible && holmesModal}
-
 
             <main className="payment-container">
                 <form onSubmit={(e) => e.preventDefault()}>
