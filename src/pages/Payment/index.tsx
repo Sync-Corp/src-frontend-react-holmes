@@ -6,7 +6,7 @@ import Header from '../../components/Header';
 import payment from '../../assets/images/payment.svg';
 import leftArrow from '../../assets/icons/white-left-arrow.svg';
 
-import Plan, { PlanRequest } from '../../models/Plan';
+import { PlanRequest } from '../../models/Plan';
 import PlanType from '../../models/PlanType';
 import api from '../../services/api';
 import User from '../../models/User';
