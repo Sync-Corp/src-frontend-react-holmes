@@ -21,6 +21,7 @@ const Payment = () => {
     const [plan, setPlan] = useState<PlanType>({} as PlanType);
     const [card, setCard] = useState(false);
     const [billet, setBillet] = useState(false);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [user, setUser] = useState<User>();
     const [isModalVisible, setModalVisible] = useState(false);
 

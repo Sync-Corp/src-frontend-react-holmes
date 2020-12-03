@@ -25,7 +25,7 @@ export default function validaCNPJ(cnpj: string) {
 
   var resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
 
-  if (resultado != parseInt(digitos.charAt(0))) {
+  if (resultado !== parseInt(digitos.charAt(0))) {
     return false;
   }
 
@@ -43,7 +43,7 @@ export default function validaCNPJ(cnpj: string) {
 
   resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
 
-  if (resultado != parseInt(digitos.charAt(1))) {
+  if (resultado !== parseInt(digitos.charAt(1))) {
     return false;
   }
 
