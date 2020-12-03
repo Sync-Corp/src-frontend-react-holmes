@@ -1,14 +1,17 @@
 import React, { FormEvent, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import InputMask from 'react-input-mask';
 
 import api from '../../services/api';
 
 import Header from '../../components/Header';
+import HolmesModal from '../../components/HolmesModal';
 
 import registerBanner from '../../assets/images/register-banner.svg';
+import validaCpf from '../../utils/cpf_validate';
+import validaCnpj from '../../utils/cnpj_validate';
 
 import './styles.css';
-import HolmesModal from '../../components/HolmesModal';
 
 function CreateAccount() {
     const history = useHistory();
@@ -40,6 +43,16 @@ function CreateAccount() {
 
     async function handleRegister(e: FormEvent) {
         e.preventDefault();
+
+        if(pessoaFisica && !validaCpf(cpf)) {
+            alert(`O cpf informado deve ser valido`)
+            return;
+        }
+
+        if(!pessoaFisica && !validaCnpj(cnpj)) {
+            alert(`O cnpj informado deve ser valido`)
+            return;
+        }
 
         if(password !== confirmPassword) {
             alert('As senhas não coincidem');
@@ -115,7 +128,8 @@ function CreateAccount() {
                                     onChange={event => setName(event.target.value)}
                                     required/>
 
-                                <input 
+                                <InputMask
+                                    mask="999.999.999-99" 
                                     type="text" 
                                     placeholder="CPF" 
                                     value={cpf} 
@@ -172,7 +186,8 @@ function CreateAccount() {
                                     required/>
 
                                 <div className="form-row">
-                                    <input 
+                                    <InputMask 
+                                        mask="99.999.999/9999-99"
                                         type="text" 
                                         placeholder="CNPJ" 
                                         value={cnpj} 
