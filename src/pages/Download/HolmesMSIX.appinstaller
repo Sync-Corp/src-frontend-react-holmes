@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppInstaller
+	Uri="file:///C:/Users/lucas_vr4d1o1/Desktop/InstallerHolmes/HolmesMSIX.appinstaller"
+	Version="1.0.5.0" xmlns="http://schemas.microsoft.com/appx/appinstaller/2017/2">
+	<MainBundle
+		Name="9a71bab4-dd7b-45ff-b8c7-41849aaeb68c"
+		Version="1.0.5.0"
+		Publisher="CN=Sync"
+		Uri="file:///C:/Users/lucas_vr4d1o1/Desktop/InstallerHolmes/HolmesMSIX_1.0.5.0_Debug_Test/HolmesMSIX_1.0.5.0_x64_Debug.msixbundle" />
+	<UpdateSettings>
+		<OnLaunch
+			HoursBetweenUpdateChecks="0" />
+	</UpdateSettings>
+</AppInstaller>
